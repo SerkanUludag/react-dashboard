@@ -1,12 +1,12 @@
-import { ResponsiveChoropleth } from '@nivo/geo';
-import { tokens } from '../theme';
-import { useTheme } from '@mui/material';
-import { geoFeatures } from '../data/mockGeoFeatures';
-import { mockGeographyData as data } from '../data/mockData';
+import { ResponsiveChoropleth } from "@nivo/geo"
+import { tokens } from "../theme"
+import { useTheme } from "@mui/material"
+import { geoFeatures } from "../data/mockGeoFeatures"
+import { mockGeographyData as data } from "../data/mockData"
 
 const GeographyChart = ({ isDashboard = false }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+  const theme = useTheme()
+  const colors = tokens(theme.palette.mode)
 
   return (
     <ResponsiveChoropleth
@@ -38,6 +38,11 @@ const GeographyChart = ({ isDashboard = false }) => {
             fill: colors.grey[100],
           },
         },
+        tooltip: {
+          container: {
+            color: colors.primary[500],
+          },
+        },
       }}
       features={geoFeatures.features}
       margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
@@ -54,23 +59,23 @@ const GeographyChart = ({ isDashboard = false }) => {
         !isDashboard
           ? [
               {
-                anchor: 'bottom-left',
-                direction: 'column',
+                anchor: "bottom-left",
+                direction: "column",
                 justify: true,
                 translateX: 20,
                 translateY: -100,
                 itemsSpacing: 0,
                 itemWidth: 94,
                 itemHeight: 18,
-                itemDirection: 'left-to-right',
+                itemDirection: "left-to-right",
                 itemTextColor: colors.grey[100],
                 itemOpacity: 0.85,
                 symbolSize: 18,
                 effects: [
                   {
-                    on: 'hover',
+                    on: "hover",
                     style: {
-                      itemTextColor: '#ffffff',
+                      itemTextColor: "#ffffff",
                       itemOpacity: 1,
                     },
                   },
@@ -80,7 +85,7 @@ const GeographyChart = ({ isDashboard = false }) => {
           : undefined
       }
     />
-  );
-};
+  )
+}
 
-export default GeographyChart;
+export default GeographyChart
